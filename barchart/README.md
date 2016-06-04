@@ -66,6 +66,7 @@ Since method chaining can only be used to descend into the document hierarchy, u
 ##Coding a Chart, Manually
 
 Now consider how you might create a bar chart without JavaScript. After all, there are only six numbers in this trivial data set, so it's not hard to write a few div elementas by hand, set their width as a multiple of the data, and be done with it.
+
 <html>
 	<!DOCTYPE html>
 		<style>
@@ -145,7 +146,7 @@ Although x here looks like an object, it is also function that returns the scale
 		.enter().append("div")
 			.style("width", function (d) { return x(d) + "px"; })
 			.text(function(d) { return d; });
-			
+
 
 
 
