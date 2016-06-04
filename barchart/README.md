@@ -93,7 +93,7 @@ This chart has one div for a container, and one child div for each bar. THe chil
 
 ##Coding a Chart, Automatically
 
-	Of course hard-coding is impractical for most datasets, and the point of this tutorial is to teach you how to create charts from data automatically. So now let's create the identical structure using D3, starting with an empty page that contains only a dic of class "chart". The following script selects the chart container and then appends a child div for each bar with the desired width:
+Of course hard-coding is impractical for most datasets, and the point of this tutorial is to teach you how to create charts from data automatically. So now let's create the identical structure using D3, starting with an empty page that contains only a dic of class "chart". The following script selects the chart container and then appends a child div for each bar with the desired width:
 
 		d3.select(".chart")
 			.selectAll("div")
@@ -102,29 +102,29 @@ This chart has one div for a container, and one child div for each bar. THe chil
 				.style("width", function(d) { return d * 10 + "px" })
 				.text(function(D) { return d; });
 
-		Although partly familiar, this code introduces an important new concept - the data join. Let's break it down, rewriting the above concise code in long form, to see how it works.
+Although partly familiar, this code introduces an important new concept - the data join. Let's break it down, rewriting the above concise code in long form, to see how it works.
 
-		First, we select the chart container using a class selector.
+	First, we select the chart container using a class selector.
 
 			var chart = d3.select(".chart");
 
-		Next we initiate the data join by defining the selection to which we will join data.
+	Next we initiate the data join by defining the selection to which we will join data.
 
 			var bar = chart.selectAll("div");
 
-		Since we know the selection is empty, the returned update and exit selections are also empty, and we need only handle the enter selection which represents ne wdata for which there was no existing element. We instantiate these missing elements by appending to the enter selection.
+	Since we know the selection is empty, the returned update and exit selections are also empty, and we need only handle the enter selection which represents ne wdata for which there was no existing element. We instantiate these missing elements by appending to the enter selection.
 
 			var barEnter = barUpdate.enter().append("div");
 
-		Now we set the width of each new bar as a multiple of the associated data value, d.
+	Now we set the width of each new bar as a multiple of the associated data value, d.
 
 			barEnter.style("width", function(d) { return d * 10 + "px"; });
 
-		Because these elements were created with the data join, each bar is already bound to data. We set the dimensions of each bar based on it data by passing a function tp compute the width style property. Lastly, we use a function to set the text content of each bar, and produce a label.
+	Because these elements were created with the data join, each bar is already bound to data. We set the dimensions of each bar based on it data by passing a function tp compute the width style property. Lastly, we use a function to set the text content of each bar, and produce a label.
 
 			barEnter.text(function(d) { return d; });
 
-		D3's selection operators such as attr, style and property, allow you to specify the value either as a constant (the same for all selected elements) or a function (computed separately for each element). If the value of a particular attribute should be based on the element's associated data, then use a function to comput it; otherwise, if it's the same for all elements, then a string or number suffices.
+	D3's selection operators such as attr, style and property, allow you to specify the value either as a constant (the same for all selected elements) or a function (computed separately for each element). If the value of a particular attribute should be based on the element's associated data, then use a function to comput it; otherwise, if it's the same for all elements, then a string or number suffices.
 
 ##Scaling to Fit
 
