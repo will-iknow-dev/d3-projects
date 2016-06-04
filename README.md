@@ -104,11 +104,10 @@ For example, to fade the background of the page to black:
 
 Or, to resize circles in a symbol map with a staggered delay:
 
-d3.selectAll("circle").transition()
-
-    .duration(750)
-    .delay(function(d, i) { return i * 10;})
-    .attr("r", function(d,) { return Math,sqrt(d * scale); });
+    d3.selectAll("circle").transition()
+        .duration(750)
+        .delay(function(d, i) { return i * 10;})
+        .attr("r", function(d,) { return Math,sqrt(d * scale); });
 
 
 By modifying only the attributes that actually change, D3 reduces overhead and allows greater graphical complexity at high frame rates. D3 also allows sequencing of complex transitions via events. And, you can still use CSS3 transitions; D3 does not replace the browser's toolbox, but exposes it in a way that is easier to use.
