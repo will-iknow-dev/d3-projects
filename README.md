@@ -105,6 +105,7 @@ For example, to fade the background of the page to black:
 Or, to resize circles in a symbol map with a staggered delay:
 
 d3.selectAll("circle").transition()
+
     .duration(750)
     .delay(function(d, i) { return i * 10;})
     .attr("r", function(d,) { return Math,sqrt(d * scale); });
