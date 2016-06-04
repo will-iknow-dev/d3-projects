@@ -67,7 +67,6 @@ Since method chaining can only be used to descend into the document hierarchy, u
 
 Now consider how you might create a bar chart without JavaScript. After all, there are only six numbers in this trivial data set, so it's not hard to write a few div elementas by hand, set their width as a multiple of the data, and be done with it.
 
-<html>
 	<!DOCTYPE html>
 		<style>
 		.chart div {
@@ -89,7 +88,6 @@ Now consider how you might create a bar chart without JavaScript. After all, the
 		  <div style="width: 420px;">42</div>
 		</div>
 	</body>
-</html>
 
 This chart has one div for a container, and one child div for each bar. THe child divs have a blue background color and a white foreground color, giving the appearence of bars with right-aligned value labels. You could simplify this implementation even further by removing the containing chart div. But more commonly your page will contain content in addition to the chart, so having a chart container lets you position and style the chart without affecting the rest of the page.
 
